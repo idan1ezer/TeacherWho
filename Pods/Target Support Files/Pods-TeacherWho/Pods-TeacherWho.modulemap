@@ -1,0 +1,6 @@
+framework module Pods_TeacherWho {
+  umbrella header "Pods-TeacherWho-umbrella.h"
+
+  export *
+  module * { export * }
+}
