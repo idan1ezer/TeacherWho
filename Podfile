@@ -6,6 +6,11 @@ target 'TeacherWho' do
   use_frameworks!
 
 pod 'lottie-ios'
+pod 'Firebase'
+pod 'FirebaseUI/Auth'
+pod 'FirebaseCore'
+pod 'FirebaseFirestore'
+
 
   # Pods for TeacherWho
 

@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5A2FA50435424EA5138EAAD6 /* Pods_TeacherWho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EF7E831D2B66C2A0D19DB0 /* Pods_TeacherWho.framework */; };
-		999A335B284A19BD00645524 /* lottieTeacher.json in Resources */ = {isa = PBXBuildFile; fileRef = 999A335A284A19BD00645524 /* lottieTeacher.json */; };
+		9907299D284B9ADE00F033F6 /* lottieTeacher.json in Resources */ = {isa = PBXBuildFile; fileRef = 9907299C284B9ADE00F033F6 /* lottieTeacher.json */; };
+		997BD615284BA3010094602C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD614284BA3010094602C /* Utilities.swift */; };
+		997BD617284BA3BE0094602C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 997BD616284BA3BE0094602C /* GoogleService-Info.plist */; };
 		999A335D284B461C00645524 /* TeachersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A335C284B461C00645524 /* TeachersView.swift */; };
 		999A3360284B48E700645524 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A335E284B48E700645524 /* TableViewCell.swift */; };
 		999A3361284B48E700645524 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 999A335F284B48E700645524 /* TableViewCell.xib */; };
 		999A3363284B52CB00645524 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A3362284B52CB00645524 /* PriceView.swift */; };
+		99A78A9A284BA04600746CB4 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A78A99284BA04600746CB4 /* TabView.swift */; };
 		99A9A3EF2849FB0D002316C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A3EE2849FB0D002316C5 /* AppDelegate.swift */; };
 		99A9A3F12849FB0D002316C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A3F02849FB0D002316C5 /* SceneDelegate.swift */; };
 		99A9A3F32849FB0D002316C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A3F22849FB0D002316C5 /* HomeView.swift */; };
@@ -27,11 +30,14 @@
 /* Begin PBXFileReference section */
 		07EF7E831D2B66C2A0D19DB0 /* Pods_TeacherWho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeacherWho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9581E715333F993F5579C906 /* Pods-TeacherWho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeacherWho.debug.xcconfig"; path = "Target Support Files/Pods-TeacherWho/Pods-TeacherWho.debug.xcconfig"; sourceTree = "<group>"; };
-		999A335A284A19BD00645524 /* lottieTeacher.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lottieTeacher.json; path = ../../../../Downloads/lottieTeacher.json; sourceTree = "<group>"; };
+		9907299C284B9ADE00F033F6 /* lottieTeacher.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lottieTeacher.json; path = lottie/lottieTeacher.json; sourceTree = SOURCE_ROOT; };
+		997BD614284BA3010094602C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		997BD616284BA3BE0094602C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		999A335C284B461C00645524 /* TeachersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersView.swift; sourceTree = "<group>"; };
 		999A335E284B48E700645524 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		999A335F284B48E700645524 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		999A3362284B52CB00645524 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		99A78A99284BA04600746CB4 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		99A9A3EB2849FB0D002316C5 /* TeacherWho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherWho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A9A3EE2849FB0D002316C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99A9A3F02849FB0D002316C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,12 +100,15 @@
 				99A9A404284A132D002316C5 /* PostView.swift */,
 				99A9A406284A133B002316C5 /* PostingView.swift */,
 				999A3362284B52CB00645524 /* PriceView.swift */,
+				99A78A99284BA04600746CB4 /* TabView.swift */,
 				999A335C284B461C00645524 /* TeachersView.swift */,
 				999A335E284B48E700645524 /* TableViewCell.swift */,
+				997BD614284BA3010094602C /* Utilities.swift */,
 				99A9A3F42849FB0D002316C5 /* Main.storyboard */,
 				999A335F284B48E700645524 /* TableViewCell.xib */,
+				997BD616284BA3BE0094602C /* GoogleService-Info.plist */,
+				9907299C284B9ADE00F033F6 /* lottieTeacher.json */,
 				99A9A3F72849FB0E002316C5 /* Assets.xcassets */,
-				999A335A284A19BD00645524 /* lottieTeacher.json */,
 				99A9A3F92849FB0E002316C5 /* LaunchScreen.storyboard */,
 				99A9A3FC2849FB0E002316C5 /* Info.plist */,
 			);
@@ -179,7 +188,8 @@
 				999A3361284B48E700645524 /* TableViewCell.xib in Resources */,
 				99A9A3F82849FB0E002316C5 /* Assets.xcassets in Resources */,
 				99A9A3F62849FB0D002316C5 /* Main.storyboard in Resources */,
-				999A335B284A19BD00645524 /* lottieTeacher.json in Resources */,
+				9907299D284B9ADE00F033F6 /* lottieTeacher.json in Resources */,
+				997BD617284BA3BE0094602C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A78A9A284BA04600746CB4 /* TabView.swift in Sources */,
 				99A9A3F32849FB0D002316C5 /* HomeView.swift in Sources */,
+				997BD615284BA3010094602C /* Utilities.swift in Sources */,
 				999A3360284B48E700645524 /* TableViewCell.swift in Sources */,
 				99A9A403284A0A6D002316C5 /* RegisterView.swift in Sources */,
 				999A335D284B461C00645524 /* TeachersView.swift in Sources */,
