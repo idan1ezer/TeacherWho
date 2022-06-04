@@ -434,14 +434,29 @@
         <!--TeacherView-->
         <scene sceneID="gMJ-r1-uHf">
             <objects>
-                <viewController id="HTg-Um-DPF" userLabel="TeacherView" sceneMemberID="viewController">
+                <viewController id="HTg-Um-DPF" userLabel="TeacherView" customClass="TeachersView" customModule="TeacherWho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r2x-eu-xdf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bbG-v6-WzR">
+                                <rect key="frame" x="20" y="108" width="374" height="685"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OPO-av-Aw3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OPO-av-Aw3" firstAttribute="bottom" secondItem="bbG-v6-WzR" secondAttribute="bottom" constant="20" id="0Og-VZ-Izp"/>
+                            <constraint firstItem="bbG-v6-WzR" firstAttribute="top" secondItem="OPO-av-Aw3" secondAttribute="top" constant="20" id="4CJ-HN-QXm"/>
+                            <constraint firstItem="OPO-av-Aw3" firstAttribute="trailing" secondItem="bbG-v6-WzR" secondAttribute="trailing" constant="20" id="EJ0-C2-rNr"/>
+                            <constraint firstItem="bbG-v6-WzR" firstAttribute="leading" secondItem="OPO-av-Aw3" secondAttribute="leading" constant="20" id="bTO-1w-aVx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XEC-au-7va"/>
+                    <connections>
+                        <outlet property="tableView" destination="bbG-v6-WzR" id="GnQ-jL-gez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGL-Rg-uNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -465,12 +480,200 @@
         <!--PriceView-->
         <scene sceneID="g4G-mU-kq1">
             <objects>
-                <viewController id="a8X-1J-GPr" userLabel="PriceView" sceneMemberID="viewController">
+                <viewController id="a8X-1J-GPr" userLabel="PriceView" customClass="PriceView" customModule="TeacherWho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mnz-o6-P3b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RRh-e7-8Nk">
+                                <rect key="frame" x="0.0" y="94" width="414" height="669"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="43G-ny-B3S">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="english" translatesAutoresizingMaskIntoConstraints="NO" id="4Ip-dH-oSk">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="118"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM4-AM-rPE">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="118"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="English">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOu-ht-tCI">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="118"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="20-30$ / h">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81568627449999997" green="0.78823529410000004" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qHU-qu-Nig">
+                                        <rect key="frame" x="0.0" y="138" width="414" height="117.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="geography" translatesAutoresizingMaskIntoConstraints="NO" id="p3w-Rh-ycR">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="117.5"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8X-aI-EyM">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="117.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Geography">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flF-rn-PfH">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="117.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="20-30$ / h">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81568627449999997" green="0.78823529410000004" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hWi-P9-9Bo">
+                                        <rect key="frame" x="0.0" y="275.5" width="414" height="118"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hebrew" translatesAutoresizingMaskIntoConstraints="NO" id="wfs-cq-ZRF">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="118"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uk-GK-tXw">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="118"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Hebrew">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP5-vy-wd1">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="118"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="20-30$ / h">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81568627449999997" green="0.78823529410000004" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="f1m-2c-1F9">
+                                        <rect key="frame" x="0.0" y="413.5" width="414" height="117.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maths" translatesAutoresizingMaskIntoConstraints="NO" id="ThK-Nj-3Ld">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="117.5"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-xH-yn1">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="117.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Mathematics">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-Ib-Qbn">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="117.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="20-30$ / h">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81568627449999997" green="0.78823529410000004" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nEe-eu-2wo">
+                                        <rect key="frame" x="0.0" y="551" width="414" height="118"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="program" translatesAutoresizingMaskIntoConstraints="NO" id="OMR-hC-KnF">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="118"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGp-na-reP">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="118"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Programming">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745" green="0.54510000000000003" blue="0.45490000000000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfd-1K-dGc">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="118"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="20-30$ / h">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.42745098039215684" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="17" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81568627449999997" green="0.78823529410000004" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5lE-wk-NMd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5lE-wk-NMd" firstAttribute="trailing" secondItem="RRh-e7-8Nk" secondAttribute="trailing" id="VDr-tN-noU"/>
+                            <constraint firstItem="RRh-e7-8Nk" firstAttribute="leading" secondItem="5lE-wk-NMd" secondAttribute="leading" id="j5f-1a-cTv"/>
+                            <constraint firstItem="5lE-wk-NMd" firstAttribute="bottom" secondItem="RRh-e7-8Nk" secondAttribute="bottom" constant="50" id="vy3-kq-vaF"/>
+                            <constraint firstItem="RRh-e7-8Nk" firstAttribute="top" secondItem="5lE-wk-NMd" secondAttribute="top" constant="50" id="yGf-WK-8lC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Prices" image="bitcoinsign.circle.fill" catalog="system" id="evo-sZ-eKC"/>
                 </viewController>
@@ -520,8 +723,13 @@
     <resources>
         <image name="bitcoinsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="check" width="32" height="32"/>
+        <image name="english" width="512" height="512"/>
+        <image name="geography" width="512" height="512"/>
         <image name="graduationcap.fill" catalog="system" width="128" height="108"/>
+        <image name="hebrew" width="512" height="512"/>
+        <image name="maths" width="512" height="512"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="program" width="512" height="512"/>
         <image name="uncheck" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
