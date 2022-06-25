@@ -11,5 +11,5 @@ struct Post {
     var post_id: String
     var image: String
     var topics: String
-    var price: Int
+    var price: String
 }

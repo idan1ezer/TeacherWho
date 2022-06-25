@@ -328,7 +328,7 @@
                                                         <state key="normal" image="uncheck"/>
                                                         <state key="selected" image="check"/>
                                                         <connections>
-                                                            <action selector="Posting_BTN_english:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="bHf-AS-jVl"/>
+                                                            <action selector="eng_BTN_sel:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="efB-g3-f7t"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uV-aw-YRn">
@@ -348,7 +348,7 @@
                                                         <state key="normal" image="uncheck"/>
                                                         <state key="selected" image="check"/>
                                                         <connections>
-                                                            <action selector="Posting_BTN_english:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="25a-e8-aM6"/>
+                                                            <action selector="geo_BTN_sel:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="Zmd-rG-KRe"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REH-Ji-AaF">
@@ -368,7 +368,7 @@
                                                         <state key="normal" image="uncheck"/>
                                                         <state key="selected" image="check"/>
                                                         <connections>
-                                                            <action selector="Posting_BTN_english:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="XuT-Rw-S6V"/>
+                                                            <action selector="heb_BTN_sel:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="8SS-aF-gi0"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hebrew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-f3-8Xh">
@@ -388,7 +388,7 @@
                                                         <state key="normal" image="uncheck"/>
                                                         <state key="selected" image="check"/>
                                                         <connections>
-                                                            <action selector="Posting_BTN_english:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="4yP-HN-fbB"/>
+                                                            <action selector="mat_BTN_sel:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="g2f-in-Rm5"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mathematics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRs-ww-I8a">
@@ -408,7 +408,7 @@
                                                         <state key="normal" image="uncheck"/>
                                                         <state key="selected" image="check"/>
                                                         <connections>
-                                                            <action selector="Posting_BTN_english:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="QXP-x3-Tcg"/>
+                                                            <action selector="prg_BTN_sel:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="W54-18-3pw"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAr-eo-XaP">
@@ -447,6 +447,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="postClicked:" destination="qjJ-Yi-jX6" eventType="touchUpInside" id="X8J-Z1-DJl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -468,6 +471,8 @@
                     <navigationItem key="navigationItem" id="JzQ-zh-gXn"/>
                     <connections>
                         <outlet property="image" destination="Ffl-vu-emt" id="jYF-bd-lVl"/>
+                        <outlet property="post_TXT_about" destination="ndN-Sm-rLm" id="mMf-nK-nUe"/>
+                        <outlet property="post_TXT_price" destination="890-XY-AEb" id="kOW-ia-LEz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHo-8A-3Fk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
