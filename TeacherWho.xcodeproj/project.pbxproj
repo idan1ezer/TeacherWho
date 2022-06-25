@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A2FA50435424EA5138EAAD6 /* Pods_TeacherWho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EF7E831D2B66C2A0D19DB0 /* Pods_TeacherWho.framework */; };
 		9907299D284B9ADE00F033F6 /* lottieTeacher.json in Resources */ = {isa = PBXBuildFile; fileRef = 9907299C284B9ADE00F033F6 /* lottieTeacher.json */; };
+		997B5F69286475DE00E5DEB1 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B5F68286475DE00E5DEB1 /* ImagePicker.swift */; };
 		997BD615284BA3010094602C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BD614284BA3010094602C /* Utilities.swift */; };
 		997BD617284BA3BE0094602C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 997BD616284BA3BE0094602C /* GoogleService-Info.plist */; };
 		999A335D284B461C00645524 /* TeachersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A335C284B461C00645524 /* TeachersView.swift */; };
@@ -25,12 +26,16 @@
 		99A9A403284A0A6D002316C5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A402284A0A6D002316C5 /* RegisterView.swift */; };
 		99A9A405284A132D002316C5 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A404284A132D002316C5 /* PostView.swift */; };
 		99A9A407284A133B002316C5 /* PostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A406284A133B002316C5 /* PostingView.swift */; };
+		99C120E12866F4F000372FCA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C120E02866F4F000372FCA /* User.swift */; };
+		99C120E32866F57000372FCA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C120E22866F57000372FCA /* Post.swift */; };
+		99C120E62866F76D00372FCA /* DB_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C120E52866F76D00372FCA /* DB_Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07EF7E831D2B66C2A0D19DB0 /* Pods_TeacherWho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeacherWho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9581E715333F993F5579C906 /* Pods-TeacherWho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeacherWho.debug.xcconfig"; path = "Target Support Files/Pods-TeacherWho/Pods-TeacherWho.debug.xcconfig"; sourceTree = "<group>"; };
 		9907299C284B9ADE00F033F6 /* lottieTeacher.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lottieTeacher.json; path = lottie/lottieTeacher.json; sourceTree = SOURCE_ROOT; };
+		997B5F68286475DE00E5DEB1 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		997BD614284BA3010094602C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		997BD616284BA3BE0094602C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		999A335C284B461C00645524 /* TeachersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersView.swift; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		99A9A402284A0A6D002316C5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		99A9A404284A132D002316C5 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		99A9A406284A133B002316C5 /* PostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingView.swift; sourceTree = "<group>"; };
+		99C120E02866F4F000372FCA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		99C120E22866F57000372FCA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		99C120E52866F76D00372FCA /* DB_Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_Helper.swift; sourceTree = "<group>"; };
 		F964B884C35C435DD87E2832 /* Pods-TeacherWho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeacherWho.release.xcconfig"; path = "Target Support Files/Pods-TeacherWho/Pods-TeacherWho.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +78,32 @@
 				07EF7E831D2B66C2A0D19DB0 /* Pods_TeacherWho.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		997B5F6A2866F3F900E5DEB1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				99A9A3F22849FB0D002316C5 /* HomeView.swift */,
+				99A9A402284A0A6D002316C5 /* RegisterView.swift */,
+				99A9A404284A132D002316C5 /* PostView.swift */,
+				99A9A406284A133B002316C5 /* PostingView.swift */,
+				999A3362284B52CB00645524 /* PriceView.swift */,
+				99A78A99284BA04600746CB4 /* TabView.swift */,
+				999A335C284B461C00645524 /* TeachersView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		997B5F6B2866F42C00E5DEB1 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				997B5F68286475DE00E5DEB1 /* ImagePicker.swift */,
+				999A335E284B48E700645524 /* TableViewCell.swift */,
+				997BD614284BA3010094602C /* Utilities.swift */,
+				99C120E02866F4F000372FCA /* User.swift */,
+				99C120E22866F57000372FCA /* Post.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		99A9A3E22849FB0D002316C5 = {
@@ -95,15 +129,9 @@
 			children = (
 				99A9A3EE2849FB0D002316C5 /* AppDelegate.swift */,
 				99A9A3F02849FB0D002316C5 /* SceneDelegate.swift */,
-				99A9A3F22849FB0D002316C5 /* HomeView.swift */,
-				99A9A402284A0A6D002316C5 /* RegisterView.swift */,
-				99A9A404284A132D002316C5 /* PostView.swift */,
-				99A9A406284A133B002316C5 /* PostingView.swift */,
-				999A3362284B52CB00645524 /* PriceView.swift */,
-				99A78A99284BA04600746CB4 /* TabView.swift */,
-				999A335C284B461C00645524 /* TeachersView.swift */,
-				999A335E284B48E700645524 /* TableViewCell.swift */,
-				997BD614284BA3010094602C /* Utilities.swift */,
+				997B5F6A2866F3F900E5DEB1 /* ViewControllers */,
+				997B5F6B2866F42C00E5DEB1 /* Support */,
+				99C120E42866F72C00372FCA /* DB */,
 				99A9A3F42849FB0D002316C5 /* Main.storyboard */,
 				999A335F284B48E700645524 /* TableViewCell.xib */,
 				997BD616284BA3BE0094602C /* GoogleService-Info.plist */,
@@ -113,6 +141,14 @@
 				99A9A3FC2849FB0E002316C5 /* Info.plist */,
 			);
 			path = TeacherWho;
+			sourceTree = "<group>";
+		};
+		99C120E42866F72C00372FCA /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				99C120E52866F76D00372FCA /* DB_Helper.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		ECA9268BC71789E0391F522C /* Pods */ = {
@@ -242,16 +278,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C120E12866F4F000372FCA /* User.swift in Sources */,
 				99A78A9A284BA04600746CB4 /* TabView.swift in Sources */,
 				99A9A3F32849FB0D002316C5 /* HomeView.swift in Sources */,
 				997BD615284BA3010094602C /* Utilities.swift in Sources */,
 				999A3360284B48E700645524 /* TableViewCell.swift in Sources */,
+				99C120E32866F57000372FCA /* Post.swift in Sources */,
 				99A9A403284A0A6D002316C5 /* RegisterView.swift in Sources */,
 				999A335D284B461C00645524 /* TeachersView.swift in Sources */,
 				99A9A3EF2849FB0D002316C5 /* AppDelegate.swift in Sources */,
 				999A3363284B52CB00645524 /* PriceView.swift in Sources */,
 				99A9A405284A132D002316C5 /* PostView.swift in Sources */,
+				997B5F69286475DE00E5DEB1 /* ImagePicker.swift in Sources */,
 				99A9A3F12849FB0D002316C5 /* SceneDelegate.swift in Sources */,
+				99C120E62866F76D00372FCA /* DB_Helper.swift in Sources */,
 				99A9A407284A133B002316C5 /* PostingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
