@@ -8,8 +8,10 @@
 import Foundation
 
 struct Post {
-    var post_id: String
+    var user_id: String
+    //var post_id: String
     var image: String
+    var about: String
     var topics: String
     var price: String
 }

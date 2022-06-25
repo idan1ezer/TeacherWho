@@ -91,8 +91,8 @@ class PostingView: UIViewController {
         
         // User was created successfully, now store the first name and last name
         let db = Firestore.firestore()
-        
-        db.collection("posts").addDocument(data: ["topics":topics, "about":about, "price":price]) { (error) in
+        let tempTopics = topics.joined(separator: " ")
+        db.collection("posts").addDocument(data: ["user_id":Auth.auth().currentUser?.uid, "topics":tempTopics, "about":about, "price":price]) { (error) in
         }
         
         // Transition to the home screen
