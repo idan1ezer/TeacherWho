@@ -50,8 +50,11 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
             else {
                 for d in snapshot!.documents {
                     //var tempName = self.getName(user_id: (d["user_id"] as? String)!, completion: <#(String) -> Void#>)
+                    
                     var tempUserID = d["user_id"] as? String
-                    self.getNameAndImage(user_id: tempUserID!)
+                    //print(tempUserID)
+                    
+                    self.tempName = self.getNameAndImage(user_id: tempUserID!)
                     
                     var tempTopics = "Topics: "
                     tempTopics += (d["topics"] as? String)!
@@ -65,8 +68,10 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                     self.tempInfo.append(tempTopics)
                     self.tempInfo.append(tempAbout!)
                     self.tempInfo.append(tempPrice)
+                    print(self.tempName)
+                    print(self.tempInfo)
                     var tempLbl = self.tempInfo.joined(separator: "\n")
-                    print(tempLbl)
+                    //print(tempLbl)
                     cell.myLabel.adjustsFontSizeToFitWidth = true
                     cell.myLabel.numberOfLines = 6
                     cell.myLabel.text = tempLbl
@@ -126,6 +131,8 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    /*
+    
     func getNameAndImage(user_id: String) {
         let db = Firestore.firestore()
         db.collection("users").whereField("user_id", isEqualTo: user_id).getDocuments() {
@@ -141,7 +148,28 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
         }
     }
+     
+     */
     
+    func getNameAndImage(user_id: String) -> String {
+        let db = Firestore.firestore().collection("users").getDocuments() { (snapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for d in snapshot!.documents {
+                    var tempUserID = d["uid"] as! String
+                    //print(tempUserID)
+                    //print(user_id)
+                    if user_id == tempUserID {
+                        self.tempName = d["name"] as! String
+                        print(self.tempName)
+                        //self.tempImage = d["image"] as! String
+                    }
+                }
+            }
+        }
+        return self.tempName
+    }
     
     /*
     func getName(user_id: String, completion: @escaping (String) -> Void) {
