@@ -13,7 +13,7 @@ import FirebaseCore
 import FirebaseFirestore
 
 
-class PostingView: UIViewController {
+class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var topics: [String] = []
     //var user_id: String = ""
@@ -130,6 +130,23 @@ class PostingView: UIViewController {
         view.window?.rootViewController = tabView
         view.window?.makeKeyAndVisible()
     }
+    
+    
+    @IBAction func uploadImage(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let image = info[.editedImage] as? UIImage else { return }
+        self.image.image = image
+        dismiss(animated: true)
+    }
+    
     
     
     
