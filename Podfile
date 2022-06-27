@@ -10,6 +10,7 @@ pod 'Firebase'
 pod 'FirebaseUI/Auth'
 pod 'FirebaseCore'
 pod 'FirebaseFirestore'
+pod 'Firebase/Storage'
 
 
   # Pods for TeacherWho

@@ -11,11 +11,13 @@ import Firebase
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseStorage
 
 
 class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var topics: [String] = []
+    var imageURL: String = ""
     //var user_id: String = ""
     //var email: String = ""
     //var password: String = ""
@@ -109,6 +111,8 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBAction func postClicked(_ sender: Any) {
         
+        uploadToFB()
+        print("The path is: \(self.imageURL)")
         // Create cleaned versions of the data
         let about = post_TXT_about.text!
         let price = post_TXT_price.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -137,7 +141,7 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
-        
+                
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -147,7 +151,39 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         dismiss(animated: true)
     }
     
+    func uploadToFB() {
+        //let imageFixed: UIImage = self.image.image!
+        
+        guard image != nil else {
+            return
+        }
+            
+        let storageRef = Storage.storage().reference()
+        let imageData = image.image?.jpegData(compressionQuality: 0.8)
+        guard imageData != nil else {
+            return
+        }
+        
+        let fileRef = storageRef.child("images/\(UUID().uuidString).jpg")
+        
+        let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+            if error == nil && metadata != nil {
+                //
+            }
+            
+        }
+        
+        fileRef.downloadURL { (url, error) in
+            if let downloadURL = url?.absoluteString {
+                self.imageURL = downloadURL
+            } else {
+                return
+            }
+        }
+        
     
+        print("The path is: \(self.imageURL)")
+    }
     
     
 }
