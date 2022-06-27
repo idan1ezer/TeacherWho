@@ -16,6 +16,13 @@ import FirebaseFirestore
 class PostingView: UIViewController {
     
     var topics: [String] = []
+    //var user_id: String = ""
+    //var email: String = ""
+    //var password: String = ""
+    var name: String = ""
+    var phone: String = ""
+    //var currUser: User = User()
+    
     @IBOutlet weak var post_TXT_about: UITextField!
     @IBOutlet weak var post_TXT_price: UITextField!
     
@@ -24,12 +31,30 @@ class PostingView: UIViewController {
     //@State var isPickerShowing = false
     //@IBOutlet weak var posting_BTN_upload: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getCurrUser()
         
     }
-
+    
+    func getCurrUser() {
+        var uID: String = Auth.auth().currentUser!.uid
+        let db = Firestore.firestore()
+        db.collection("users").whereField("uid", isEqualTo: uID).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("err")
+            } else {
+                for d in querySnapshot!.documents {
+                    self.name = d["name"] as! String
+                    self.phone = d["phone"] as! String
+                }
+            }
+        }
+    }
+    
     @IBAction func eng_BTN_sel(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
@@ -92,7 +117,7 @@ class PostingView: UIViewController {
         // User was created successfully, now store the first name and last name
         let db = Firestore.firestore()
         let tempTopics = topics.joined(separator: " ")
-        db.collection("posts").addDocument(data: ["user_id":Auth.auth().currentUser?.uid, "topics":tempTopics, "about":about, "price":price]) { (error) in
+        db.collection("posts").addDocument(data: ["user_id":Auth.auth().currentUser?.uid, "name":self.name, "phone":self.phone, "topics":tempTopics, "about":about, "price":price]) { (error) in
         }
         
         // Transition to the home screen

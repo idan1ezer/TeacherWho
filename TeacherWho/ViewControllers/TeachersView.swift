@@ -51,11 +51,11 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                 for d in snapshot!.documents {
                     //var tempName = self.getName(user_id: (d["user_id"] as? String)!, completion: <#(String) -> Void#>)
                     
-                    var tempUserID = d["user_id"] as? String
+                    //var tempUserID = d["user_id"] as? String
                     //print(tempUserID)
                     
-                    self.tempName = self.getNameAndImage(user_id: tempUserID!)
-                    
+                    //self.tempName = self.getNameAndImage(user_id: tempUserID!)
+                    var tempName = d["name"] as? String
                     var tempTopics = "Topics: "
                     tempTopics += (d["topics"] as? String)!
                     var tempAbout = d["about"] as? String
@@ -64,12 +64,11 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                     
                     //self.tempInfo.append(contentsOf: [tempName, tempTopics, tempAbout, tempPrice])
 
-                    self.tempInfo.append(self.tempName)
+                    self.tempInfo.append(tempName!)
                     self.tempInfo.append(tempTopics)
                     self.tempInfo.append(tempAbout!)
                     self.tempInfo.append(tempPrice)
-                    print(self.tempName)
-                    print(self.tempInfo)
+                    
                     var tempLbl = self.tempInfo.joined(separator: "\n")
                     //print(tempLbl)
                     cell.myLabel.adjustsFontSizeToFitWidth = true
@@ -122,7 +121,7 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                 print("Error getting documents: \(err)")
             } else {
                 for d in snapshot!.documents {
-                    let post = Post(user_id: d["user_id"] as! String, image: "", about: d["about"] as! String, topics: d["topics"] as! String, price: d["price"] as! String)
+                    let post = Post(user_id: d["user_id"] as! String, name: d["name"] as! String, phone: d["phone"] as! String, image: "", about: d["about"] as! String, topics: d["topics"] as! String, price: d["price"] as! String)
                     //d["image"] as! String
                     if (!self.myData.contains(where: {$0.user_id == post.user_id})){
                         self.myData.append(post)
