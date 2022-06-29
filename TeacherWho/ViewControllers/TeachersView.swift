@@ -73,6 +73,7 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                     var tempLbl = self.tempInfo.joined(separator: "\n")
                     //print(tempLbl)
                     
+                    self.tempInfo.removeAll()
                     //var localURL: URL
                     let tempUserID = d["user_id"] as? String
                     let start = tempUserID?.index(tempUserID!.startIndex, offsetBy: 0)
@@ -150,9 +151,9 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                 for d in snapshot!.documents {
                     let post = Post(user_id: d["user_id"] as! String, name: d["name"] as! String, phone: d["phone"] as! String, image: "", about: d["about"] as! String, topics: d["topics"] as! String, price: d["price"] as! String)
                     //d["image"] as! String
-                    if (!self.myData.contains(where: {$0.user_id == post.user_id})){
-                        self.myData.append(post)
-                    }
+                    //if (!self.myData.contains(where: {$0.user_id == post.user_id})){
+                    self.myData.append(post)
+                    //}
                 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
