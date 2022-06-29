@@ -17,29 +17,16 @@ import FirebaseStorage
 class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var topics: [String] = []
-    //var imageURL: String = ""
-    //var user_id: String = ""
-    //var email: String = ""
-    //var password: String = ""
     var name: String = ""
     var phone: String = ""
-    //var currUser: User = User()
     
     @IBOutlet weak var post_TXT_about: UITextField!
     @IBOutlet weak var post_TXT_price: UITextField!
-    
     @IBOutlet weak var image: UIImageView!
-    //@State var selecteedImage: UIImage?
-    //@State var isPickerShowing = false
-    //@IBOutlet weak var posting_BTN_upload: UIButton!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getCurrUser()
-        
     }
     
     func getCurrUser() {
@@ -151,7 +138,6 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     }
     
     func uploadToFB() {
-        //let imageFixed: UIImage = self.image.image!
         
         guard image != nil else {
             return
@@ -176,60 +162,6 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
             if error == nil && metadata != nil {
                 //
             }
-            
         }
-        /*
-        fileRef.downloadURL { (url, error) in
-            if let downloadURL = url?.absoluteString {
-                self.imageURL = downloadURL
-            } else {
-                return
-            }
-        }
-        
-         */
-    
-        //print("The path is: \(self.imageURL)")
-    }
-    
-    
-}
-
-/*
-struct ContentView: View {
-    
-    @State var selecteedImage: UIImage?
-    @State var isPickerShowing = false
-    
-    var body: some View {
-        VStack {
-            if selecteedImage != nil {
-                Image(uiImage: selecteedImage!)
-                    .resizable()
-                    .frame(width: 0, height: 0)
-            }
-            Button {
-                self.isPickerShowing = true
-            } label: {
-                Text("")
-            }
-        }
-        .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
-            ImagePicker(selectedImage: self.$selecteedImage, isPickerShowing: self.$isPickerShowing)
-        }
-        
-        if selecteedImage != nil {
-            //image.image = selecteedImage
-        }
-
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-*/
-

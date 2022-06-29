@@ -20,15 +20,14 @@ class InfoView: UIViewController {
         super.viewDidLoad()
         
         loadInfo()
-        // Do any additional setup after loading the view.
     }
     
     func loadInfo() {
         if self.post != nil {
             self.tempInfo.append(self.post!.name)
-            self.tempInfo.append(self.post!.topics)
+            self.tempInfo.append("Topics: " + self.post!.topics)
             self.tempInfo.append(self.post!.about)
-            self.tempInfo.append(self.post!.price)
+            self.tempInfo.append("Price: " + self.post!.price)
             
             info_LBL_info.adjustsFontSizeToFitWidth = true
             info_LBL_info.numberOfLines = 16
@@ -46,14 +45,8 @@ class InfoView: UIViewController {
         var newID = String(tempUserID![range])
         newID = "\"" + newID + "\""
         
-        //let start = tempUserID.index(tempUserID.startIndex, offSetBy: 10)
-        //let end = tempUserID.index(tempUserID.startIndex, offSetBy: (tempUserID.count - 1))
-
         let storageRef = Storage.storage().reference()
         let imgRef = storageRef.child("images/\(newID).jpg")
-        //print("images/\(newID).jpg")
-        //print(newID)
-        //print(d["user_id"])
         imgRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 //
@@ -67,7 +60,16 @@ class InfoView: UIViewController {
     
 
     @IBAction func sendMessage(_ sender: Any) {
-        
+        let phone: String = post!.phone
+        let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(phone)")!
+        if UIApplication.shared.canOpenURL(appURL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(appURL)
+            }
+        }
     }
+    
     
 }

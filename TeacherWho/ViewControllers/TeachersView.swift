@@ -20,17 +20,13 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //loadPosts()
+   
         readPosts()
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        
-
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,9 +35,7 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        //cell.myLabel.text = myData[indexPath.row]
-        //cell.myImageView.backgroundColor = .cyan
-        
+
         let db = Firestore.firestore()
         db.collection("posts").whereField("user_id", isEqualTo: myData[indexPath.row].user_id).getDocuments() {
             (snapshot, err) in
@@ -50,12 +44,6 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
             else {
                 for d in snapshot!.documents {
-                    //var tempName = self.getName(user_id: (d["user_id"] as? String)!, completion: <#(String) -> Void#>)
-                    
-                    //var tempUserID = d["user_id"] as? String
-                    //print(tempUserID)
-                    
-                    //self.tempName = self.getNameAndImage(user_id: tempUserID!)
                     var tempName = d["name"] as? String
                     var tempTopics = "Topics: "
                     tempTopics += (d["topics"] as? String)!
@@ -63,18 +51,14 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                     var tempPrice = "Price: "
                     tempPrice += (d["price"] as? String)!
                     
-                    //self.tempInfo.append(contentsOf: [tempName, tempTopics, tempAbout, tempPrice])
-
                     self.tempInfo.append(tempName!)
                     self.tempInfo.append(tempTopics)
                     self.tempInfo.append(tempAbout!)
                     self.tempInfo.append(tempPrice)
                     
                     var tempLbl = self.tempInfo.joined(separator: "\n")
-                    //print(tempLbl)
                     
                     self.tempInfo.removeAll()
-                    //var localURL: URL
                     let tempUserID = d["user_id"] as? String
                     let start = tempUserID?.index(tempUserID!.startIndex, offsetBy: 0)
                     let end = tempUserID?.index(tempUserID!.startIndex, offsetBy: (tempUserID!.count - 1))
@@ -82,14 +66,8 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                     var newID = String(tempUserID![range])
                     newID = "\"" + newID + "\""
                     
-                    //let start = tempUserID.index(tempUserID.startIndex, offSetBy: 10)
-                    //let end = tempUserID.index(tempUserID.startIndex, offSetBy: (tempUserID.count - 1))
-
                     let storageRef = Storage.storage().reference()
                     let imgRef = storageRef.child("images/\(newID).jpg")
-                    //print("images/\(newID).jpg")
-                    //print(newID)
-                    //print(d["user_id"])
                     imgRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
                             //
@@ -102,7 +80,6 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
                     cell.myLabel.adjustsFontSizeToFitWidth = true
                     cell.myLabel.numberOfLines = 6
                     cell.myLabel.text = tempLbl
-                    //cell.
                 }
             }
         }
@@ -110,7 +87,6 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "showdetail", sender: self)
     }
     
@@ -121,36 +97,6 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
     }
-
-    /*
-    
-    func loadPosts(){
-            let db = Firestore.firestore().collection("posts")
-            db.addSnapshotListener{snapshot,error in
-                if let err = error {
-                    debugPrint("error fetching docs: \(err)")
-                } else {
-                    guard let snap = snapshot else {
-                        return
-                    }
-                    for d in snap.documents {
-                        print(d["user_id"] as! String)
-                        print(d["about"] as! String)
-                        print(d["topics"] as! String)
-                        let post = Post(user_id: d["user_id"] as! String, image: "", about: d["about"] as! String, topics: d["topics"] as! String, price: d["price"] as! String)
-                        //d["image"] as! String
-                        if (!self.myData.contains(where: {$0.user_id == post.user_id})){
-                            self.myData.append(post)
-                        }
-                    }
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-    }
-     
-     */
     
     func readPosts() {
         let db = Firestore.firestore().collection("posts").getDocuments() { (snapshot, err) in
@@ -159,10 +105,7 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
             } else {
                 for d in snapshot!.documents {
                     let post = Post(user_id: d["user_id"] as! String, name: d["name"] as! String, phone: d["phone"] as! String, image: "", about: d["about"] as! String, topics: d["topics"] as! String, price: d["price"] as! String)
-                    //d["image"] as! String
-                    //if (!self.myData.contains(where: {$0.user_id == post.user_id})){
                     self.myData.append(post)
-                    //}
                 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -171,25 +114,6 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    /*
-    
-    func getNameAndImage(user_id: String) {
-        let db = Firestore.firestore()
-        db.collection("users").whereField("user_id", isEqualTo: user_id).getDocuments() {
-            (querySnapshot, err) in
-            if let err = err {
-                print("Error")
-            }
-            else {
-                for d in querySnapshot!.documents {
-                    self.tempName = String((d["name"] as! String?)!)
-                    self.tempImage = String((d["image"] as! String?)!)
-                }
-            }
-        }
-    }
-     
-     */
     
     func getNameAndImage(user_id: String) -> String {
         let db = Firestore.firestore().collection("users").getDocuments() { (snapshot, err) in
@@ -198,36 +122,13 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
             } else {
                 for d in snapshot!.documents {
                     var tempUserID = d["uid"] as! String
-                    //print(tempUserID)
-                    //print(user_id)
                     if user_id == tempUserID {
                         self.tempName = d["name"] as! String
                         print(self.tempName)
-                        //self.tempImage = d["image"] as! String
                     }
                 }
             }
         }
         return self.tempName
-    }
-    
-    /*
-    func getName(user_id: String, completion: @escaping (String) -> Void) {
-        let db = Firestore.firestore()
-        db.collection("users").whereField("user_id", isEqualTo: user_id).getDocuments() {
-            (querySnapshot, err) in
-            if let err = err {
-                print("Error")
-            }
-            else {
-                for d in querySnapshot!.documents {
-                    completion(d["name"] as! String? ?? "")
-                }
-            }
-        }
-        completion("")
-    }
-     */
-    
-
+    }    
 }

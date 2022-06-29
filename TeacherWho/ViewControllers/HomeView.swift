@@ -19,24 +19,17 @@ class HomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
     func setUpElements() {
-        
         // Hide the error label
         login_LBL_error.alpha = 0
         
         // Style the elements
         Utilities.styleTextField(login_TXT_email)
         Utilities.styleTextField(login_TXT_password)
-
-        
     }
-    
-    
-    
 
     @IBAction func loginClicked(_ sender: Any) {
                 
@@ -51,20 +44,16 @@ class HomeView: UIViewController {
                 // Couldn't sign in
                 self.login_LBL_error.text = error!.localizedDescription
                 self.login_LBL_error.alpha = 1
-            }
-            else {
+            } else {
                 self.transitionToHome()
             }
         }
     }
     
     func transitionToHome() {
-        
         let tabView = storyboard?.instantiateViewController(identifier: "TabVC") as? TabView
         view.window?.rootViewController = tabView
         view.window?.makeKeyAndVisible()
-        
     }
     
 }
-
