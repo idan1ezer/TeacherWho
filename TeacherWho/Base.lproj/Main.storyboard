@@ -515,7 +515,7 @@
                     <navigationItem key="navigationItem" id="XEC-au-7va"/>
                     <connections>
                         <outlet property="tableView" destination="bbG-v6-WzR" id="GnQ-jL-gez"/>
-                        <segue destination="fyZ-jE-bNu" kind="show" identifier=" " id="byN-dR-ZL9"/>
+                        <segue destination="fyZ-jE-bNu" kind="show" identifier="showdetail" id="byN-dR-ZL9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGL-Rg-uNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -543,7 +543,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghx-0O-eQA">
-                                <rect key="frame" x="70" y="756" width="274" height="42"/>
+                                <rect key="frame" x="70" y="741" width="274" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
                                     <attributedString key="attributedTitle">
@@ -570,7 +570,7 @@
                             <constraint firstItem="jqn-f2-5Da" firstAttribute="centerX" secondItem="D37-79-SpT" secondAttribute="centerX" id="D4a-KU-EiD"/>
                             <constraint firstItem="c2X-fq-VUB" firstAttribute="trailing" secondItem="jqn-f2-5Da" secondAttribute="trailing" constant="30" id="KBE-FQ-xZZ"/>
                             <constraint firstItem="Eab-p9-4tg" firstAttribute="top" secondItem="c2X-fq-VUB" secondAttribute="top" constant="50" id="Quc-i9-cvg"/>
-                            <constraint firstItem="c2X-fq-VUB" firstAttribute="bottom" secondItem="Ghx-0O-eQA" secondAttribute="bottom" constant="15" id="eIf-VH-fCS"/>
+                            <constraint firstItem="c2X-fq-VUB" firstAttribute="bottom" secondItem="Ghx-0O-eQA" secondAttribute="bottom" constant="30" id="eIf-VH-fCS"/>
                             <constraint firstItem="jqn-f2-5Da" firstAttribute="leading" secondItem="c2X-fq-VUB" secondAttribute="leading" constant="30" id="krm-Bb-mAe"/>
                             <constraint firstItem="c2X-fq-VUB" firstAttribute="trailing" secondItem="Ghx-0O-eQA" secondAttribute="trailing" constant="70" id="qP5-ev-50V"/>
                             <constraint firstItem="Ghx-0O-eQA" firstAttribute="leading" secondItem="c2X-fq-VUB" secondAttribute="leading" constant="70" id="sgp-gb-8Na"/>

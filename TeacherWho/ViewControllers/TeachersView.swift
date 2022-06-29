@@ -87,8 +87,8 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
 
                     let storageRef = Storage.storage().reference()
                     let imgRef = storageRef.child("images/\(newID).jpg")
-                    print("images/\(newID).jpg")
-                    print(newID)
+                    //print("images/\(newID).jpg")
+                    //print(newID)
                     //print(d["user_id"])
                     imgRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
@@ -110,7 +110,16 @@ class TeachersView: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showdetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? InfoView {
+            destination.post = myData[(tableView.indexPathForSelectedRow?.row)!]
+        }
+        
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
     }
 
     /*
