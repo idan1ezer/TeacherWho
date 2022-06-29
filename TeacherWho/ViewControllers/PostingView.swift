@@ -17,7 +17,7 @@ import FirebaseStorage
 class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var topics: [String] = []
-    var imageURL: String = ""
+    //var imageURL: String = ""
     //var user_id: String = ""
     //var email: String = ""
     //var password: String = ""
@@ -112,7 +112,6 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @IBAction func postClicked(_ sender: Any) {
         
         uploadToFB()
-        print("The path is: \(self.imageURL)")
         // Create cleaned versions of the data
         let about = post_TXT_about.text!
         let price = post_TXT_price.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -164,7 +163,14 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
             return
         }
         
-        let fileRef = storageRef.child("images/\(UUID().uuidString).jpg")
+        let tempUserID = Auth.auth().currentUser?.uid
+        let start = tempUserID?.index(tempUserID!.startIndex, offsetBy: 0)
+        let end = tempUserID?.index(tempUserID!.startIndex, offsetBy: (tempUserID!.count - 1))
+        let range = start!...end!
+        var newID = String(tempUserID![range])
+        newID = "\"" + newID + "\""
+        
+        let fileRef = storageRef.child("images/\(newID).jpg")
         
         let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
             if error == nil && metadata != nil {
@@ -172,7 +178,7 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
             }
             
         }
-        
+        /*
         fileRef.downloadURL { (url, error) in
             if let downloadURL = url?.absoluteString {
                 self.imageURL = downloadURL
@@ -181,8 +187,9 @@ class PostingView: UIViewController, UIImagePickerControllerDelegate, UINavigati
             }
         }
         
+         */
     
-        print("The path is: \(self.imageURL)")
+        //print("The path is: \(self.imageURL)")
     }
     
     
